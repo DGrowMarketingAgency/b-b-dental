@@ -57,7 +57,7 @@ p {
   z-index: -1;
 }
 /*  header */
-header {
+/* header {
   width: 100%;
   padding: 20px 0px;
   background-color: var(--red-color);
@@ -82,8 +82,100 @@ nav a {
   font-family: var(--para-font);
   text-decoration: none;
   font-weight: 600;
-}
+} */
+
 /*  header */
+
+header {
+  width: 100%;
+  background: var(--red-color);
+  padding: 20px 0px;
+  position: fixed;
+  z-index: 10000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo img {
+  height: 30px;
+}
+.logo img.mark-logo {
+  height: 45px;
+}
+nav.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+nav.nav-links a {
+  color: var(--black-color);
+  font-family: var(--para-font);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.handbag i {
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--red-color);
+  padding: 15px;
+  margin-top: 30px;
+}
+
+.mobile-menu a {
+  color: #fff;
+  padding: 40px 0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--para-font);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav.nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Smooth Transition */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.mobile-menu.open {
+  display: flex;
+  max-height: 500px; /* enough to fit all links */
+}
+
 /* hero-section */
 .hero-section {
   width: 100%;
@@ -117,7 +209,7 @@ nav a {
   filter: grayscale(1);
 } */
 .hero-section .container {
-  height: 75%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,6 +222,7 @@ nav a {
 .hero-section h1 {
   color: var(--red-color);
   filter: drop-shadow(0px 0px 46px #dad8ce8f);
+  padding-top: 80px;
 }
 .hero-section p {
   width: 60%;
@@ -241,6 +334,7 @@ footer a {
   background-size: cover;
   position: relative;
   z-index: -1;
+  padding: 80px 0px;
 }
 .hero-section-page .container {
   padding: 80px 0px;
@@ -275,4 +369,350 @@ footer a {
 }
 .sub-pages img {
   width: 80%;
+}
+.section-text2 {
+  opacity: 0;
+  position: absolute;
+  /* transition: all 1s ease-in-out; */
+  width: 100%;
+}
+.section-text2.active {
+  opacity: 1;
+  position: relative;
+}
+.timeline {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 15px;
+}
+.timeline .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #bbb;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.timeline .dot.active {
+  background: #e60000;
+}
+.timeline .dot::after {
+  content: attr(data-title);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  white-space: nowrap;
+  color: #333;
+}
+.grids-section {
+  background: #0b0c3c; /* Dark Blue BG */
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.grids-section .sub-heading {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #d0d0d0;
+}
+
+.grids-section .section-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.grids-section .section-desc {
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.grids {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.grid-item {
+  flex: 1 1 200px;
+  max-width: 220px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  /* matches style in screenshot */
+}
+
+.grid-item h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--heading-font);
+}
+.workflow-section {
+  background: #0b0c3c; /* Dark Blue background */
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.workflow-section .sub-heading {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #d0d0d0;
+}
+
+.workflow-section .section-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.workflow-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  text-align: left;
+}
+
+.step h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-family: var(--heading-font);
+}
+
+.step p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ddd;
+  font-family: var(--para-font);
+}
+.abutments {
+  padding: 60px 20px;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.abutments .title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.abutments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+.abutment-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.abutment-item h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.abutment-item p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+.full-img img {
+  width: 100%;
+  margin: 40px 0px;
+}
+.surgical-kits {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.kits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+  align-items: start;
+  justify-items: center;
+}
+
+.kit-item img {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.kit-item h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.blue {
+  color: #004aad;
+}
+.orange {
+  color: #ff5c33;
+}
+.purple {
+  color: #8e44ad;
+}
+.red {
+  color: #b22222;
+}
+.guided-kit {
+  padding: 60px 20px;
+  background: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.guided-kit h2 {
+  text-align: center;
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.kit-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.kit-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .kit-layout {
+    grid-template-columns: 1fr;
+  }
+}
+.next-kit {
+  padding: 60px 20px;
+  background: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.next-kit h2 {
+  text-align: center;
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.kit-layout2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: flex-start;
+  place-items: center;
+}
+
+.kit-image2 img {
+  max-width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .kit-layout2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  nav.nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+  .section1 .container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+  .section-img {
+    display: block;
+  }
+  .section-img img {
+    width: 100%;
+  }
+  .hero-section p {
+    width: 100%;
+  }
+  footer .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .hero-section-page .container p {
+    width: 100%;
+  }
+  .hero-section-page h1 {
+    font-size: 32px;
+  }
+  .hero-section-page {
+    height: 100vh;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  nav.nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+  .section1 .container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+  .section-img {
+    display: block;
+  }
+  .section-img img {
+    width: 100%;
+  }
+  .hero-section p {
+    width: 100%;
+  }
+  footer .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .hero-section-page .container p {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+}
+@media (min-width: 992px) and (max-width: 1199px) {
 }
